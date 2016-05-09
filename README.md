@@ -1,5 +1,7 @@
+###慕课网Java高并发秒杀 ([课程](http://www.imooc.com/learn/587))
 
-
+####SQL脚本
+```sql
 CREATE TABLE seckill(
 `seckill_id` BIGINT NOT NUll AUTO_INCREMENT COMMENT '商品库存ID',
 `name` VARCHAR(120) NOT NULL COMMENT '商品名称',
@@ -32,8 +34,7 @@ PRIMARY KEY(seckill_id,user_phone),/*联合主键*/
 KEY idx_create_time(create_time)
 )ENGINE=INNODB DEFAULT CHARSET=utf8 COMMENT='秒杀成功明细表'
 
-SHOW CREATE TABLE seckill\G;
+SHOW CREATE TABLE seckill\G;#显示表的创建信息
+```
 
-mybatis两个问题?①sql写在哪里?②怎么实现DAO接口?
-第一个问题:注解或者XML选择XML.
-第二个问题:Mapper自动实现DAO接口或者API编程方式实现DAO接口.选择Mapper.# seckill
+1. Mybatis两个问题?①sql写在哪里?②怎么实现DAO接口?第一个问题:注解或者XML选择XML.第二个问题:Mapper自动实现DAO接口或者API编程方式实现DAO接口.选择Mapper.
