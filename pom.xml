@@ -147,7 +147,7 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.38</version>
-            <!--<scope>runtime</scope>-->
+            <scope>runtime</scope>
         </dependency>
 
         <dependency>
@@ -156,7 +156,11 @@
             <version>0.9.1.2</version>
         </dependency>
 
-
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>1.4</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>
@@ -167,7 +171,7 @@
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
-            <version>3.3.0</version>
+            <version>3.4.0</version>
         </dependency>
 
         <dependency>
@@ -186,16 +190,16 @@
 
     <!-- Build Settings -->
     <!--http://maven.apache.org/pom.html#Build_Settings-->
-    <build>
+   <!-- <build>
         <finalName>${artifactId}-${version}</finalName>
         <resources>
             <resource>
-                <!--directory: 资源所在的位置-->
+                &lt;!&ndash;directory: 资源所在的位置&ndash;&gt;
                 <directory>src/main/resources</directory>
-                <!--filtering: 是否替换资源中的属性placehold-->
+                &lt;!&ndash;filtering: 是否替换资源中的属性placehold&ndash;&gt;
                 <filtering>true</filtering>
             </resource>
         </resources>
-    </build>
+    </build>-->
 
 </project>

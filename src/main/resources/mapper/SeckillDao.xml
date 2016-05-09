@@ -6,13 +6,12 @@
 
     <!--mapper作用:为DAO接口方法提供sql语句配置-->
 
-
     <!-- int reduceNumber(long seckillId, Date killTime);-->
     <update id="reduceNumber">
        UPDATE seckill set number = number -1
-       where seckill_id = #{seckillId},
-       AND  start_time <![CDATA[ <= ]]> #{killTime},
-       AND  end_time >= #{killTime},
+       where seckill_id = #{seckillId}
+       AND  start_time <![CDATA[ <= ]]> #{killTime}
+       AND  end_time >= #{killTime}
        AND number >0;
    </update>
 

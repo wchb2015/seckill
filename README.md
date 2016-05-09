@@ -1,19 +1,23 @@
-###慕课网Java高并发秒杀 ([课程](http://www.imooc.com/learn/587))
+###慕课网Java高并发秒杀([课程](http://www.imooc.com/learn/587))
 
 ####SQL脚本
 ```sql
+CREATE DATABASE seckill;
+USE seckill;
+
+-- todo:mysql　Ver　5.7.12for Linux(x86_64)中一个表只能有一个TIMESTAMP
 CREATE TABLE seckill(
 `seckill_id` BIGINT NOT NUll AUTO_INCREMENT COMMENT '商品库存ID',
 `name` VARCHAR(120) NOT NULL COMMENT '商品名称',
 `number` int NOT NULL COMMENT '库存数量',
 `start_time` TIMESTAMP  NOT NULL COMMENT '秒杀开始时间',
-`end_time` TIMESTAMP  NOT NULL COMMENT '秒杀结束时间',
+`end_time`   DATETIME   NOT NULL COMMENT '秒杀结束时间',
 `create_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
 PRIMARY KEY (seckill_id),
 key idx_start_time(start_time),
 key idx_end_time(end_time),
 key idx_create_time(create_time)
-)ENGINE=INNODB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='秒杀库存表'
+)ENGINE=INNODB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8 COMMENT='秒杀库存表';
 
 -- 初始化数据
 INSERT into seckill(name,number,start_time,end_time)

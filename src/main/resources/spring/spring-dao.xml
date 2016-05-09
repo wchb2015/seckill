@@ -12,21 +12,42 @@
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <!--2.配置连接池属性-->
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="${driverClassName}"></property>
-        <property name="jdbcUrl" value="${jdbc.url}"></property>
-        <property name="user" value="${jdbc.username}"></property>
-        <property name="password" value="${jdbc.password}"></property>
+    <!--todo java.sql.SQLException: Access denied for user ''@'localhost' (using password: NO)-->
+    <!--    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+            &lt;!&ndash;    <property name="driverClass" value="${driverClassName}"></property>
+                    <property name="jdbcUrl" value="${jdbc.url}"></property>
+                    <property name="user" value="${jdbc.username}"></property>
+                    <property name="password" value="${jdbc.password}"></property>&ndash;&gt;
 
-        <property name="maxPoolSize" value="30"></property>
-        <property name="minPoolSize" value="10"></property>
-        <!--关闭连接后不自动commit-->
-        <property name="autoCommitOnClose" value="false"></property>
-        <!--获取连接超时时间-->
-        <property name="checkoutTimeout" value="10000"></property>
-        <!--获取连接重试次数-->
-        <property name="acquireRetryAttempts" value="5"></property>
+            <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+            &lt;!&ndash;<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/test_mysql"></property>&ndash;&gt;
+            <property name="jdbcUrl" value="jdbc:mysql://127.0.0.1:3306/test_mysql"></property>
+            <property name="user" value="root"></property>
+            <property name="password" value="111111"></property>
+
+            <property name="maxPoolSize" value="30"></property>
+            <property name="minPoolSize" value="10"></property>
+            &lt;!&ndash;关闭连接后不自动commit&ndash;&gt;
+            <property name="autoCommitOnClose" value="false"></property>
+            &lt;!&ndash;获取连接超时时间&ndash;&gt;
+            <property name="checkoutTimeout" value="10000"></property>
+            &lt;!&ndash;获取连接重试次数&ndash;&gt;
+            <property name="acquireRetryAttempts" value="3"></property>
+        </bean>-->
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/test_mysql"/>
+        <property name="username" value="root"/>
+        <property name="password" value="111111"/>
+        <!--todo -->
+        <!--    <property name="driverClassName" value="${driverClassName}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>-->
     </bean>
+
 
     <!--３.配置SqlSessionFactory对象-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -46,6 +67,5 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
         <!-- 给出需要扫描的Dao接口-->
         <property name="basePackage" value="org.seckill.dao"/>
-
     </bean>
 </beans>

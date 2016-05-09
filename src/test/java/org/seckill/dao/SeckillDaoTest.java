@@ -1,5 +1,6 @@
 package org.seckill.dao;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.seckill.entity.Seckill;
@@ -8,8 +9,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 
-import java.util.Date;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -55,6 +57,63 @@ public class SeckillDaoTest {
         Date killTime = new Date();
         int updateCount = seckillDao.reduceNumber(1000L, killTime);
         System.out.println("updateCount:  " + updateCount);
+    }
+
+
+    @Test
+    public void testGetConnection() {
+
+        String url = "jdbc:mysql://10.112.1.110:3306/test_mysql";
+        String driver = "com.mysql.jdbc.Driver";
+        String user = "root";
+        String passwd = "111111";
+
+        try {
+            Class.forName(driver);
+        } catch (Exception e) {
+            System.out.println("Get Connection failed!!!");
+        }
+
+        try {
+            Connection con = DriverManager.getConnection(url, user, passwd);
+
+            System.out.println("Get Connection Success!!!");
+
+            Properties properties = con.getClientInfo();
+            Iterator<Map.Entry<Object, Object>> it = properties.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry<Object, Object> entry = it.next();
+                System.out.println(entry.getKey() + "---------------" + entry.getValue());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @Test
+    public void testComboPooledDataSource() throws Exception {
+        String url = "jdbc:mysql://10.112.1.110:3306/test_mysql";
+        String driver = "com.mysql.jdbc.Driver";
+        String user = "root";
+        String passwd = "111111";
+
+        ComboPooledDataSource cpds = new ComboPooledDataSource();
+
+        cpds.setDriverClass(driver);
+        cpds.setJdbcUrl(url);
+        cpds.setUser(user);
+        cpds.setPassword(passwd);
+
+        cpds.setMinPoolSize(5);
+        cpds.setAcquireIncrement(5);
+        cpds.setMaxPoolSize(30);
+        cpds.setMaxIdleTime(60);
+
+        Connection con = cpds.getConnection();
+
+        System.out.println("Get Connection Success!!!   " + con);
 
     }
 }
+
