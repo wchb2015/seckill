@@ -47,7 +47,6 @@
             <version>4.12</version>
         </dependency>
 
-
         <!--common end-->
 
         <!--spring start-->
@@ -107,13 +106,13 @@
         <!--spring end-->
 
         <!--springmvc start-->
-
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <!--<scope>provided</scope>-->
             <version>1.2</version>
         </dependency>
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -137,9 +136,6 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
-
-
         <!--springmvc end-->
 
         <!--mybatis start-->
@@ -186,20 +182,18 @@
         <spring.version>4.2.0.RELEASE</spring.version>
     </properties>
 
-
-
     <!-- Build Settings -->
     <!--http://maven.apache.org/pom.html#Build_Settings-->
-   <!-- <build>
+    <build>
         <finalName>${artifactId}-${version}</finalName>
         <resources>
             <resource>
-                &lt;!&ndash;directory: 资源所在的位置&ndash;&gt;
+                <!--directory: 资源所在的位置-->
                 <directory>src/main/resources</directory>
-                &lt;!&ndash;filtering: 是否替换资源中的属性placehold&ndash;&gt;
+                <!--filtering: 是否替换资源中的属性placehold-->
                 <filtering>true</filtering>
             </resource>
         </resources>
-    </build>-->
+    </build>
 
 </project>

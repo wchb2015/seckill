@@ -5,7 +5,7 @@
     <!--通过ignore关键字将主键冲突时的报错改为返回0-->
     <!--int insertSuccessKilled(long seckilledId,long userPhone);-->
     <update id="insertSuccessKilled">
-       INSERT ignore INTO success_killed(seckill_id,user_phone,state)VALUES (#{seckilledId},#{userPhone},0)
+       INSERT ignore INTO success_killed(seckill_id,user_phone,state)VALUES (#{seckilledId},#{userPhone},1)
     </update>
 
     <!-- SuccessKilled queryByIdWithSeckill(@Param("seckilledId") long seckilledId, @Param("userPhone") long userPhone);-->
