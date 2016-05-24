@@ -76,15 +76,24 @@ public class SeckillServiceTest {
     }
 
     @Test
-    public void testExecuteSeckill() throws Exception {
-        long id = 1000;
-        long phone = 15821739222L;
+    public void testExecuteSeckill() {
+        long id = 1011;
+        long phone = 15821739111L;
 
         String md5 = "9b8082b22ded08718a4255e9f482a80c";
 
-        SeckillExecution seckillExecution = seckillService.executeSeckill(id, phone, md5);
+        try {
 
-        System.out.println(seckillExecution);
+            SeckillExecution seckillExecution = seckillService.executeSeckill(id, phone, md5);
+
+            System.out.println(seckillExecution);
+
+        } catch (Exception e) {
+
+            LOG.error(e.getMessage());
+
+        }
+
 
     }
 }

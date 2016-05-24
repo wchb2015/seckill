@@ -3,12 +3,15 @@ package org.seckill.dto;
 import org.seckill.entity.SuccessKilled;
 import org.seckill.enums.SeckillStatEnum;
 
+import java.io.Serializable;
+
 /**
  * 封装秒杀执行后的结果
  * Created by wchb7 on 16-5-13.
  */
-public class SeckillExecution {
+public class SeckillExecution implements Serializable {
 
+    private static final long serialVersionUID = 2160123709223365015L;
 
     private long seckillId;
 

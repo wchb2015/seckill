@@ -2,11 +2,14 @@
 <%@include file="common/tag.jsp" %>
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>秒杀详情页</title>
     <%@include file="common/head.jsp" %>
 </head>
+
 <body>
+
 <div class="container">
     <div class="panel panel-default text-center">
         <div class="pannel-heading">
@@ -26,7 +29,9 @@
 
 <%--登录弹出层 输入电话--%>
 <div id="killPhoneModal" class="modal fade">
+
     <div class="modal-dialog">
+
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title text-center">
@@ -37,8 +42,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-xs-8 col-xs-offset-2">
-                        <input type="text" name="killPhone" id="killPhoneKey" placeholder="填写手机号"
-                               class="form-control">
+                        <input type="text" name="killPhone" id="killPhoneKey" placeholder="填写手机号" class="form-control">
                     </div>
                 </div>
             </div>
@@ -51,6 +55,7 @@
                     Submit
                 </button>
             </div>
+
         </div>
     </div>
 

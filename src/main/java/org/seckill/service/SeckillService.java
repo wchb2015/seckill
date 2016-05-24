@@ -43,7 +43,6 @@ public interface SeckillService {
      */
     Exposer exportSeckillUrl(long seckillId);
 
-
     /**
      * 执行秒杀操作
      *

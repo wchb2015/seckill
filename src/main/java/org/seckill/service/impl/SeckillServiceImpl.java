@@ -41,7 +41,7 @@ public class SeckillServiceImpl implements SeckillService {
     private final String slat = "asdfasd2341242@#$@#$%$%%#@$%#@%^%^";
 
     public List<Seckill> getSeckillList() {
-        return seckillDao.queryAll(0, 4);
+        return seckillDao.queryAll(0, 1000);
     }
 
     public Seckill getById(long seckillId) {
@@ -49,6 +49,7 @@ public class SeckillServiceImpl implements SeckillService {
     }
 
     public Exposer exportSeckillUrl(long seckillId) {
+
         Seckill seckill = getById(seckillId);
 
         if (seckill == null) {
@@ -74,29 +75,32 @@ public class SeckillServiceImpl implements SeckillService {
     /**
      * 使用注解控制事务的优点:
      * 1.开发团队达成一致约定,明确标注事务方法的编程风格.
-     * 2.保证事务方法的执行时间尽可能短,不要穿插其他网络操作RPC/HTTP请求或者玻璃到事务方法外部.
+     * 2.保证事务方法的执行时间尽可能短,不要穿插其他网络操作RPC/HTTP请求或者剥离到事务方法外部.
      * 3.不是所有的方法都需要事务.如一些查询的service.只有一条修改操作的service.
      */
     public SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SeckillException, RepeatKillException, SeckillCloseException {
+
         if (StringUtils.isEmpty(md5) || !md5.equals(getMD5(seckillId))) {
-            throw new SeckillException("seckill data rewrite");
+            throw new SeckillException(SeckillStatEnum.DATA_REWRITE.getStateInfo());
         }
 
         //执行秒杀逻辑:1.减库存.2.记录购买行为
         Date nowTime = new Date();
 
         try {
+
             int updateCount = seckillDao.reduceNumber(seckillId, nowTime);
 
             if (updateCount <= 0) {
-                throw new SeckillCloseException("seckill is closed!");
+                throw new SeckillCloseException(SeckillStatEnum.END.getStateInfo());
             } else {
+
                 //记录购买行为
                 int inserCount = successKilledDao.insertSuccessKilled(seckillId, userPhone);
 
                 if (inserCount <= 0) {
                     //重复秒杀
-                    throw new RepeatKillException("seckill repeated!");
+                    throw new RepeatKillException(SeckillStatEnum.REPEAT_KILL.getStateInfo());
                 } else {
                     //秒杀成功
                     SuccessKilled successKilled = successKilledDao.queryByIdWithSeckill(seckillId, userPhone);
@@ -115,7 +119,6 @@ public class SeckillServiceImpl implements SeckillService {
 
 
     }
-
 
     private String getMD5(long seckillId) {
         String base = seckillId + "/" + slat;

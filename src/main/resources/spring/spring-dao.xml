@@ -48,7 +48,6 @@
                 <property name="password" value="${jdbc.password}"/>-->
     </bean>
 
-
     <!--３.配置SqlSessionFactory对象-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <!--注入数据库连接池-->
@@ -68,4 +67,5 @@
         <!-- 给出需要扫描的Dao接口-->
         <property name="basePackage" value="org.seckill.dao"/>
     </bean>
+
 </beans>

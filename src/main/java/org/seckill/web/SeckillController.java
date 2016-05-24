@@ -67,6 +67,7 @@ public class SeckillController {
             produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public SeckillResult<Exposer> exposer(@PathVariable("seckillId") Long seckillId) {
+
         SeckillResult<Exposer> result;
 
         try {
@@ -84,9 +85,8 @@ public class SeckillController {
     @RequestMapping(value = "/{seckillId}/{md5}/execution", method = RequestMethod.POST,
             produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public SeckillResult<SeckillExecution> execute(@PathVariable("seckillId") Long seckillId,
-                                                   @PathVariable("md5") String md5, @CookieValue(value = "killPhone", required = false) Long killPhone) {
-        SeckillResult<SeckillExecution> result;
+    public SeckillResult<SeckillExecution> execute(@PathVariable("seckillId") Long seckillId, @PathVariable("md5") String md5,
+                                                   @CookieValue(value = "killPhone", required = false) Long killPhone) {
 
         if (killPhone == null) {
             return new SeckillResult<SeckillExecution>(false, SeckillStatEnum.NOT_LOGIN.getStateInfo());
@@ -108,6 +108,7 @@ public class SeckillController {
             SeckillExecution execution = new SeckillExecution(seckillId, SeckillStatEnum.INNER_ERROR);
             return new SeckillResult<SeckillExecution>(true, execution);
         }
+
     }
 
     @RequestMapping(value = "/time/now", method = RequestMethod.GET)
