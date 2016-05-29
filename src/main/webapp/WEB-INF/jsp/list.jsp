@@ -2,10 +2,12 @@
 <%@include file="common/tag.jsp" %>
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>秒杀列表页</title>
     <%@include file="common/head.jsp" %>
 </head>
+
 <body>
 <div class="container">
     <div class="panel panel-default">
@@ -14,6 +16,7 @@
         </div>
         <div class="panel-body">
             <table class="table table-hover">
+
                 <thead>
                 <tr>
                     <td>名称</td>
@@ -24,6 +27,7 @@
                     <td>详情页</td>
                 </tr>
                 </thead>
+
                 <tbody>
                 <c:forEach var="sk" items="${list}">
                     <tr>
@@ -44,6 +48,7 @@
                     </tr>
                 </c:forEach>
                 </tbody>
+
             </table>
 
         </div>
@@ -53,5 +58,4 @@
 </body>
 <script src="https://code.jquery.com/jquery.js"></script>
 <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-
 </html>

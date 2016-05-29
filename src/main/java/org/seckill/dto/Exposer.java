@@ -1,16 +1,19 @@
 package org.seckill.dto;
 
+import java.io.Serializable;
+
 /**
- * 暴露秒杀地址DTO
+ * 暴露秒杀地址DTO(dto:web层和service层传递数据用)
  * Created by wchb7 on 16-5-13.
  */
-public class Exposer {
+public class Exposer implements Serializable {
+
+    private static final long serialVersionUID = 7602244494037452541L;
 
     /**
      * 秒杀是否开启
      */
     private boolean exposed;
-
 
     private String md5;
 
