@@ -38,4 +38,7 @@ public enum SeckillStatEnum {
         return null;
     }
 
+    public static void main(String[] args) {
+        System.out.println(SeckillStatEnum.stateOf(1).getStateInfo());
+    }
 }
