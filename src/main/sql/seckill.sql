@@ -5,7 +5,7 @@ DELIMITER  $$ -- console ; 转换为 $$
 -- 参数: in　输入参数; out 输出参数
 -- row_count():返回上一条修改类型的sql(delete,update,insert)的影响行数
 -- row_count(): 0:未修改数据;>0 :表示修改的行数;<0:sql错误/未执行修改的sql
-CREATE  PROCEDURE  `test_mysql`.`execute_seckill`
+CREATE  PROCEDURE  `seckill`.`execute_seckill`
  (in v_seckill_id bigint,in v_phone bigint,in v_kill_time TIMESTAMP ,out r_result int)
 
 BEGIN
