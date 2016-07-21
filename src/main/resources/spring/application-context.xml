@@ -14,21 +14,6 @@
         </property>
     </bean>
 
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="driverClass" value="${mysql.driver}"/>
-        <property name="jdbcUrl" value="${jdbc.url}"/>
-        <property name="user" value="${jdbc.username}"/>
-        <property name="password" value="${jdbc.password}"/>
-        <property name="maxPoolSize" value="30"/>
-        <property name="minPoolSize" value="10"/>
-        <!--关闭连接后不自动commit-->
-        <property name="autoCommitOnClose" value="false"/>
-        <!--获取连接超时时间-->
-        <property name="checkoutTimeout" value="10000"/>
-        <!--获取连接重试次数-->
-        <property name="acquireRetryAttempts" value="3"/>
-    </bean>
-
     <import resource="classpath:spring/spring-dao.xml"/>
     <import resource="classpath:spring/spring-service.xml"/>
     <import resource="classpath:spring/spring-web.xml"/>
