@@ -14,6 +14,8 @@
 
         <!--开启驼峰命名转换Table:create_time到 Entity(createTime)-->
         <setting name="mapUnderscoreToCamelCase" value="true"/>
+
+        <setting name="logImpl" value="LOG4J"/>
     </settings>
 
 </configuration>

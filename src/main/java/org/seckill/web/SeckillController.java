@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletContext;
 import java.util.Date;
 import java.util.List;
 
@@ -31,6 +32,9 @@ public class SeckillController {
 
     @Autowired
     private SeckillService seckillService;
+
+    @Autowired
+    private ServletContext servletContext;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model) {
@@ -93,8 +97,8 @@ public class SeckillController {
         }
 
         try {
-//            SeckillExecution execution = seckillService.executeSeckill(seckillId, killPhone, md5);
-            SeckillExecution execution = seckillService.executeSeckillProcedure(seckillId, killPhone, md5);
+            SeckillExecution execution = seckillService.executeSeckill(seckillId, killPhone, md5);
+            //SeckillExecution execution = seckillService.executeSeckillProcedure(seckillId, killPhone, md5);
             return new SeckillResult<SeckillExecution>(true, execution);
         } catch (RepeatKillException e) {
             SeckillExecution execution = new SeckillExecution(seckillId, SeckillStatEnum.REPEAT_KILL);
