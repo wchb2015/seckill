@@ -9,9 +9,7 @@ import org.seckill.entity.Seckill;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
-/**
- * Created by wchb7 on 16-5-27.
- */
+
 public class RedisDao {
 
     private final Log LOG = LogFactory.getLog(this.getClass());
@@ -76,8 +74,6 @@ public class RedisDao {
             LOG.error(e.getMessage());
         }
         return null;
-
-
     }
 
 }

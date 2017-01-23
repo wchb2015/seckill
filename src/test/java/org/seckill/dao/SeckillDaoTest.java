@@ -8,16 +8,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.*;
-
-import static org.junit.Assert.*;
-
-/**
- * Created by wchb7 on 16-5-8.
- */
 
 /**
  * 配置Spring和Junit整合,junit启动时加载springIOC容器
