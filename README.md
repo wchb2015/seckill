@@ -1,7 +1,7 @@
-###慕课网Java高并发秒杀([课程](http://www.imooc.com/learn/587))
+### 慕课网Java高并发秒杀([课程](http://www.imooc.com/learn/587))
 - 很好的spring,springMVC,mybatis,bootstrap,jQuery,mysql,Restful学习案例
 
-####SQL脚本
+#### SQL脚本
 ```sql
 CREATE DATABASE seckill;
 USE seckill;
