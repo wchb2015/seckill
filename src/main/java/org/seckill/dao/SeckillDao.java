@@ -19,7 +19,7 @@ public interface SeckillDao {
      * @param killTime
      * @return　如果更新行数大于1,表示更新的行数
      */
-    int reduceNumber(@Param("seckillId") long seckillId, @Param("killTime") Date killTime);
+    Integer reduceNumber(@Param("seckillId") long seckillId, @Param("killTime") Date killTime);
 
 
     /**

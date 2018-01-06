@@ -31,7 +31,7 @@ public interface SeckillService {
      * @param seckillId
      * @return
      */
-    Seckill getById(long seckillId);
+    Seckill getById(Long seckillId);
 
 
     /**
@@ -41,7 +41,7 @@ public interface SeckillService {
      * @param seckillId
      * @return
      */
-    Exposer exportSeckillUrl(long seckillId);
+    Exposer exportSeckillUrl(Long seckillId);
 
     /**
      * 执行秒杀操作
@@ -51,7 +51,7 @@ public interface SeckillService {
      * @param md5
      * @return
      */
-    SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SeckillException
+    SeckillExecution executeSeckill(Long seckillId, Long userPhone, String md5) throws SeckillException
             , RepeatKillException, SeckillCloseException;
 
     /**
@@ -62,6 +62,6 @@ public interface SeckillService {
      * @param md5
      * @return
      */
-    SeckillExecution executeSeckillProcedure(long seckillId, long userPhone, String md5);
+    SeckillExecution executeSeckillProcedure(Long seckillId, Long userPhone, String md5);
 
 }
