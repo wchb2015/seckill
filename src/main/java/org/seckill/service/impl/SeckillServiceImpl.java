@@ -47,15 +47,18 @@ public class SeckillServiceImpl implements SeckillService {
     //md5盐值字符串,用于混淆md5
     private final String slat = "asdfasd2341242@#$@#$%$%%#@$%#@%^%^";
 
+    @Override
     public List<Seckill> getSeckillList() {
         return seckillDao.queryAll(0, 1000);
     }
 
-    public Seckill getById(long seckillId) {
+    @Override
+    public Seckill getById(Long seckillId) {
         return seckillDao.queryById(seckillId);
     }
 
-    public Exposer exportSeckillUrl(long seckillId) {
+    @Override
+    public Exposer exportSeckillUrl(Long seckillId) {
 
         //优化点:缓存优化 超时的基础上维护一致性
         //1.访问redis
@@ -94,7 +97,8 @@ public class SeckillServiceImpl implements SeckillService {
      * 2.保证事务方法的执行时间尽可能短,不要穿插其他网络操作RPC/HTTP请求或者剥离到事务方法外部.
      * 3.不是所有的方法都需要事务.如一些查询的service.只有一条修改操作的service.
      */
-    public SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SeckillException, RepeatKillException, SeckillCloseException {
+    @Override
+    public SeckillExecution executeSeckill(Long seckillId, Long userPhone, String md5) throws SeckillException, RepeatKillException, SeckillCloseException {
 
         if (StringUtils.isEmpty(md5) || !md5.equals(getMD5(seckillId))) {
             throw new SeckillException(SeckillStatEnum.DATA_REWRITE.getStateInfo());
@@ -137,10 +141,10 @@ public class SeckillServiceImpl implements SeckillService {
             throw new SeckillException("seckill inner error: " + e.getMessage());
         }
 
-
     }
 
-    public SeckillExecution executeSeckillProcedure(long seckillId, long userPhone, String md5) {
+    @Override
+    public SeckillExecution executeSeckillProcedure(Long seckillId, Long userPhone, String md5) {
         if (StringUtils.isEmpty(md5) || !md5.equals(getMD5(seckillId))) {
             throw new SeckillException(SeckillStatEnum.DATA_REWRITE.getStateInfo());
         }
