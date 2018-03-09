@@ -1,5 +1,9 @@
 package org.seckill.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+import org.junit.experimental.theories.suppliers.TestedOn;
 import org.seckill.entity.SuccessKilled;
 import org.seckill.enums.SeckillStatEnum;
 
@@ -9,6 +13,9 @@ import java.io.Serializable;
  * 封装秒杀执行后的结果
  * Created by wchb7 on 16-5-13.
  */
+@Getter
+@Setter
+@ToString
 public class SeckillExecution implements Serializable {
 
     private static final long serialVersionUID = 2160123709223365015L;
@@ -26,38 +33,6 @@ public class SeckillExecution implements Serializable {
     private String stateInfo;
 
     private SuccessKilled successKilled;
-
-    public long getSeckillId() {
-        return seckillId;
-    }
-
-    public void setSeckillId(long seckillId) {
-        this.seckillId = seckillId;
-    }
-
-    public int getState() {
-        return state;
-    }
-
-    public void setState(int state) {
-        this.state = state;
-    }
-
-    public String getStateInfo() {
-        return stateInfo;
-    }
-
-    public void setStateInfo(String stateInfo) {
-        this.stateInfo = stateInfo;
-    }
-
-    public SuccessKilled getSuccessKilled() {
-        return successKilled;
-    }
-
-    public void setSuccessKilled(SuccessKilled successKilled) {
-        this.successKilled = successKilled;
-    }
 
     public SeckillExecution(long seckillId, SeckillStatEnum statEnum) {
         this.seckillId = seckillId;
@@ -79,13 +54,4 @@ public class SeckillExecution implements Serializable {
         this.successKilled = successKilled;
     }
 
-    @Override
-    public String toString() {
-        return "SeckillExecution{" +
-                "seckillId=" + seckillId +
-                ", state=" + state +
-                ", stateInfo='" + stateInfo + '\'' +
-                ", successKilled=" + successKilled +
-                '}';
-    }
 }

@@ -1,8 +1,5 @@
 package org.seckill.web;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.ibatis.annotations.Param;
 import org.seckill.dto.Exposer;
 import org.seckill.dto.SeckillExecution;
 import org.seckill.dto.SeckillResult;
@@ -11,6 +8,8 @@ import org.seckill.enums.SeckillStatEnum;
 import org.seckill.exception.RepeatKillException;
 import org.seckill.exception.SeckillCloseException;
 import org.seckill.service.SeckillService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +27,7 @@ import java.util.List;
 @RequestMapping("/seckill")//url:/模块/资源/{id}/细分
 public class SeckillController {
 
-    private Log LOG = LogFactory.getLog(this.getClass());
+    private static final Logger LOG = LoggerFactory.getLogger(SeckillController.class);
 
     @Autowired
     private SeckillService seckillService;

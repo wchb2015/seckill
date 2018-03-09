@@ -1,13 +1,16 @@
 package org.seckill.dto;
 
-import java.io.Serializable;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
-/**
- * Created by wchb7 on 16-5-23.
- */
+import java.io.Serializable;
 
 //DTO:完成WEB层到Service层的数据传递
 //所有的ajax请求的返回类型封装JSON结果
+@ToString
+@Getter
+@Setter
 public class SeckillResult<T> implements Serializable {
 
     private static final long serialVersionUID = -3936895148526393338L;
@@ -28,36 +31,4 @@ public class SeckillResult<T> implements Serializable {
         this.data = data;
     }
 
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
-    }
-
-    public String getError() {
-        return error;
-    }
-
-    public void setError(String error) {
-        this.error = error;
-    }
-
-    @Override
-    public String toString() {
-        return "SeckillResult{" +
-                "success=" + success +
-                ", data=" + data +
-                ", error='" + error + '\'' +
-                '}';
-    }
 }

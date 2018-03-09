@@ -1,4 +1,5 @@
 # Package Files #
+.DS_Store
 *.iml
 *.class
 *.jar

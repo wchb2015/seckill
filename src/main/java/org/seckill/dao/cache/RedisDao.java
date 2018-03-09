@@ -3,16 +3,16 @@ package org.seckill.dao.cache;
 import com.dyuproject.protostuff.LinkedBuffer;
 import com.dyuproject.protostuff.ProtostuffIOUtil;
 import com.dyuproject.protostuff.runtime.RuntimeSchema;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.seckill.entity.Seckill;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
 
 public class RedisDao {
 
-    private final Log LOG = LogFactory.getLog(this.getClass());
+    private static final Logger LOG = LoggerFactory.getLogger(RedisDao.class);
 
     private final JedisPool jedisPool;
 
