@@ -43,3 +43,5 @@ SHOW CREATE TABLE seckill\G;#显示表的创建信息
 ```
 
 1. Mybatis两个问题?①sql写在哪里?②怎么实现DAO接口?第一个问题:注解或者XML选择XML.第二个问题:Mapper自动实现DAO接口或者API编程方式实现DAO接口.选择Mapper.
+
+test
