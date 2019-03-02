@@ -1,5 +1,5 @@
 ### Imooc Java High Concurrency Seckill Online Shopping System([Course](http://www.imooc.com/learn/587))
--  Spring,SpringMVC,Mybatis,bootstrap,jQuery,mysql,Restful API.
+-  Spring,SpringMVC,Mybatis,Bootstrap,jQuery,Mysql,Restful API.
 
 #### SQL Script 
 ```sql
