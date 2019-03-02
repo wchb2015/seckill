@@ -1,7 +1,8 @@
-### 慕课网Java高并发秒杀([课程](http://www.imooc.com/learn/587))
-- 很好的spring,springMVC,mybatis,bootstrap,jQuery,mysql,Restful学习案例
+### Imooc Java High Concurrency Seckill Online Shopping System([Course](http://www.imooc.com/learn/587))
+-  Spring,SpringMVC,Mybatis,Maven,Bootstrap,jQuery,Mysql,Restful API.
+-  Use Redis the improve the performance.
 
-#### SQL脚本
+#### SQL Script 
 ```sql
 CREATE DATABASE seckill;
 USE seckill;
@@ -41,5 +42,3 @@ KEY idx_create_time(create_time)
 
 SHOW CREATE TABLE seckill\G;#显示表的创建信息
 ```
-
-1. Mybatis两个问题?①sql写在哪里?②怎么实现DAO接口?第一个问题:注解或者XML选择XML.第二个问题:Mapper自动实现DAO接口或者API编程方式实现DAO接口.选择Mapper.
